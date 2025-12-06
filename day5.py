@@ -4,13 +4,13 @@ good = []
 is_good = True
 with open("day5.txt", "r") as f:
     for line in f:
-        s = line.strip()
-        if s == "":
+        row = line.strip()
+        if row == "":
             is_good = False
             continue
 
         if is_good:
-            left, right = s.split("-")
+            left, right = row.split("-")
             good.append((int(left), int(right)))
         else:
             good.sort(key=lambda x: x[0])
