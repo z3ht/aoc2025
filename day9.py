@@ -47,10 +47,8 @@ with open("day9.txt", "r") as f:
 
             max_area = max(
                 max_area,
-                area(x_min1, x_min2),
                 area(x_min1, x_max2),
-                area(x_max1, x_min2),
-                area(x_max1, x_max2)
+                area(x_max1, x_min2)
             )
 
     print(max_area)
