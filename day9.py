@@ -36,7 +36,6 @@ with open("day9.txt", "r") as f:
             if the_left > the_right:
                 break
 
-
             def area(x1, x2):
                 x_min, x_max = min(x1, x2), max(x1, x2)
                 if the_left <= x_min and x_max <= the_right:
