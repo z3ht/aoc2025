@@ -7,7 +7,7 @@ def solve(buttons, target):
     max_presses_per_slot = max(target)
     the_presses = [model.NewIntVar(0, max_presses_per_slot, f'presses_{i}') for i in range(len(buttons))]
     for i, required_slot_score in enumerate(target):
-        the_score_per_slot = sum(presses * button[i] for presses, button in zip(the_presses, buttons))
+        the_score_per_slot = sum(the_press * button[i] for the_press, button in zip(the_presses, buttons))
         model.Add(the_score_per_slot == required_slot_score)
 
     all_presses = model.NewIntVar(0, max_presses_per_slot * len(buttons), 'all_presses')
