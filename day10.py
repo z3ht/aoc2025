@@ -10,15 +10,15 @@ def solve(buttons, target):
         the_score_per_slot = sum(the_press * button[i] for the_press, button in zip(the_presses, buttons))
         model.Add(the_score_per_slot == required_slot_score)
 
-    all_presses = model.NewIntVar(0, max_presses_per_slot * len(buttons), 'all_presses')
-    model.Add(all_presses == sum(the_presses))
-    model.Minimize(all_presses)
+    all_the_presses = model.NewIntVar(0, max_presses_per_slot * len(buttons), 'all_presses')
+    model.Add(all_the_presses == sum(the_presses))
+    model.Minimize(all_the_presses)
 
     solver = CpSolver()
     result_code = solver.Solve(model)
     assert result_code == OPTIMAL
 
-    return solver.Value(all_presses)
+    return solver.Value(all_the_presses)
 
 
 scores = []
